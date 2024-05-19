@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>로또 번호 생성결과</h1>
+    <button type="button" id="open">로또 번호 생성하기</button>
+    <div id="demo" style="display: none;">
+        <p id="answer"></p>
+        <button type="button" id="close">닫기</button>
+    </div>
+
+    <script>
+        document.querySelector("#open").onclick = function (){
+            document.querySelector("#demo").style.display = "block";
+            const nums = [];
+            while (nums.length < 6){
+                let x = Math.floor(45 * Math.random() + 1);
+                if (!nums.includes(x)){
+                    nums.push(x);
+                }
+            }
+            document.getElementById("answer").innerHTML = "결과: " + nums.join(", ");
+        }
+        document.querySelector("#close").onclick = function(){
+            document.querySelector("#demo").style.display = "none";
+        }
+    </script>
+</body>
+</html>

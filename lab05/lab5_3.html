@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name = prompt("이름을 입력하시오");
+        let age = prompt("나이를 입력하시오(숫자)");
+        let height = prompt("키를 입력하시오(숫자)");
+        let weight = prompt("체중을 입력하시오(숫자)");
+        let result;
+        let kaup = function(age, height, weight){
+            let index = weight / (height / 100) ** 2
+            if (age >= 20){
+                if (index <= 17.9)
+                 result = "저체중";
+                if (index >= 18 && index <= 23)
+                 result = "표준체중";
+                if (index >= 24 && index <= 30)
+                 result = "과체중";
+                if (index >30)
+                 result = "비만";
+            }
+            else {
+                if (index <= 18.4)
+                 result = "저체중";
+                if (index >= 18.5 && index <= 24)
+                 result = "표준체중";
+                if (index >= 25 && index <= 30)
+                 result = "과체중";
+                if (index >30)
+                 result = "비만";
+            }
+            document.write("이름: "+name+"<br/>"+"나이: "+age+"<br/>"+"키: "+height+"<br/>"+"체중: "+weight+"<br/>");
+            document.write("당신은 "+result+"("+index+")입니다.");
+        }(age, height, weight);
+    </script>
+</body>
+</html>
